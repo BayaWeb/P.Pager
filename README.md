@@ -24,12 +24,12 @@ Install [P.Pager.Mvc.Core](https://www.nuget.org/packages/P.Pager.Mvc.Core/3.0.0
 Install-Package P.Pager.Mvc.Core -Version 3.0.0
 ```
 
-#### .Net Core 6 and .Net Core 7
+#### .Net Core 6 above
 
-Install [P.Pager.Mvc.Core](https://www.nuget.org/packages/P.Pager.Mvc.Core/7.0.0) via [NuGet](http://nuget.org). This will install [P.Pager](https://www.nuget.org/packages/P.Pager/7.0.0) automatically.
+Install [P.Pager.Mvc.Core](https://www.nuget.org/packages/P.Pager.Mvc.Core/) via [NuGet](http://nuget.org). This will install [P.Pager](https://www.nuget.org/packages/P.Pager/) automatically.
 
 ```
-Install-Package P.Pager.Mvc.Core -Version 7.0.0
+Install-Package P.Pager.Mvc.Core
 ```
 
 ### After that
