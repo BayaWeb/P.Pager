@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>P.Pager</Title>
     <Company>BlogArray</Company>
@@ -15,11 +15,11 @@
     <NeutralLanguage>en-IN</NeutralLanguage>
     <SignAssembly>true</SignAssembly>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>7.0</Version>
-    <AssemblyVersion>7.0.0.0</AssemblyVersion>
-    <FileVersion>7.0.0.0</FileVersion>
-    <Copyright>Copyright Sisindry Medagam, BlogArray © 2020</Copyright>
-    <PackageReleaseNotes>v7.0 - P.Pager now Support .Net Core 6 above.</PackageReleaseNotes>
+    <Version>9.0</Version>
+    <AssemblyVersion>9.0.0.0</AssemblyVersion>
+    <FileVersion>9.0.0.0</FileVersion>
+    <Copyright>Copyright Sisindry Medagam, BlogArray © 2024</Copyright>
+    <PackageReleaseNotes>v9.0 - P.Pager now Support .Net Core 6 above.</PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>p.pager.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 </Project>
