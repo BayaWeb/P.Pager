@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,13 +19,14 @@ namespace P.Pager
         {
             if (pageIndex < 1)
                 pageIndex = 1;
-            var itemIndex = (pageIndex - 1) * pageSize;
-            var totalItemCount = allItems.Count();
+
+            int itemIndex = (pageIndex - 1) * pageSize;
+            int totalItemCount = allItems.Count();
             while (totalItemCount <= itemIndex && pageIndex > 1)
             {
                 itemIndex = (--pageIndex - 1) * pageSize;
             }
-            var pageOfItems = allItems.Skip(itemIndex).Take(pageSize);
+            IQueryable<T> pageOfItems = allItems.Skip(itemIndex).Take(pageSize);
             return new Pager<T>(pageOfItems, pageIndex, pageSize, totalItemCount);
         }
 
@@ -42,11 +41,12 @@ namespace P.Pager
         /// <returns>Child set that is divided from parent list.</returns>
         private static async Task<IPager<T>> AsPagerListAsync<T>(IQueryable<T> allItems, int pageIndex, int pageSize, CancellationToken cancellationToken)
         {
-            var childSet = new List<T>();
+            List<T> childSet = new List<T>();
             if (pageIndex < 1)
                 pageIndex = 1;
-            var itemIndex = (pageIndex - 1) * pageSize;
-            var totalItemCount = allItems.Count();
+
+            int itemIndex = (pageIndex - 1) * pageSize;
+            int totalItemCount = allItems.Count();
             while (totalItemCount <= itemIndex && pageIndex > 1)
             {
                 itemIndex = (--pageIndex - 1) * pageSize;

@@ -38,14 +38,14 @@ namespace P.Pager.Mvc.Core
 
         private static HtmlString PageBuilder(IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
-            var firstPageToDisplay = 1;
-            var lastPageToDisplay = pager.TotalPageCount;
-            var pageNumbersToDisplay = lastPageToDisplay;
+            int firstPageToDisplay = 1;
+            int lastPageToDisplay = pager.TotalPageCount;
+            int pageNumbersToDisplay = lastPageToDisplay;
 
             if (pagerOptions.PagesToDisplay.HasValue && pager.TotalPageCount > pagerOptions.PagesToDisplay)
             {
-                var maxPageNumbersToDisplay = pagerOptions.PagesToDisplay.Value;
-                firstPageToDisplay = pager.CurrentPageIndex - maxPageNumbersToDisplay / 2;
+                int maxPageNumbersToDisplay = pagerOptions.PagesToDisplay.Value;
+                firstPageToDisplay = pager.CurrentPageIndex - (maxPageNumbersToDisplay / 2);
                 if (firstPageToDisplay < 1)
                     firstPageToDisplay = 1;
                 pageNumbersToDisplay = maxPageNumbersToDisplay;
@@ -54,7 +54,7 @@ namespace P.Pager.Mvc.Core
                     firstPageToDisplay = pager.TotalPageCount - maxPageNumbersToDisplay + 1;
             }
 
-            var listItemLinks = new List<TagBuilder>();
+            List<TagBuilder> listItemLinks = new List<TagBuilder>();
 
             if (pagerOptions.DisplayFirstPage == PagerDisplayMode.Always || (pagerOptions.DisplayFirstPage == PagerDisplayMode.IfNeeded && firstPageToDisplay > 1))
                 listItemLinks.Add(First(pager, generatePageUrl, pagerOptions));
@@ -73,7 +73,7 @@ namespace P.Pager.Mvc.Core
                 if (pagerOptions.HasEllipses && firstPageToDisplay > 1)
                     listItemLinks.Add(Ellipses(pagerOptions));
 
-                foreach (var i in Enumerable.Range(firstPageToDisplay, pageNumbersToDisplay))
+                foreach (int i in Enumerable.Range(firstPageToDisplay, pageNumbersToDisplay))
                 {
                     //show delimiter between page numbers
                     if (i > firstPageToDisplay && !string.IsNullOrWhiteSpace(pagerOptions.TextForDelimiter))
@@ -93,7 +93,7 @@ namespace P.Pager.Mvc.Core
             if (pagerOptions.DisplayLastPage == PagerDisplayMode.Always || (pagerOptions.DisplayLastPage == PagerDisplayMode.IfNeeded && lastPageToDisplay < pager.TotalPageCount))
                 listItemLinks.Add(Last(pager, generatePageUrl, pagerOptions));
 
-            var listItemLinksString = listItemLinks.Aggregate(new StringBuilder(), (sb, listItem) => sb.Append(TagBuilderToString(listItem)), sb => sb.ToString());
+            string listItemLinksString = listItemLinks.Aggregate(new StringBuilder(), (sb, listItem) => sb.Append(TagBuilderToString(listItem)), sb => sb.ToString());
 
             var ul = new TagBuilder("ul");
             AppendHtml(ul, listItemLinksString);
@@ -121,7 +121,7 @@ namespace P.Pager.Mvc.Core
 
         private static TagBuilder Previous(IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
-            var targetPageNumber = pager.CurrentPageIndex - 1;
+            int targetPageNumber = pager.CurrentPageIndex - 1;
             var previous = new TagBuilder("a");
             AppendHtml(previous, string.Format(pagerOptions.TextToPreviousPage, targetPageNumber));
             previous.Attributes["rel"] = "prev";
@@ -136,8 +136,8 @@ namespace P.Pager.Mvc.Core
 
         private static TagBuilder Page(int i, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
-            var format = string.Format(pagerOptions.TextToIndividualPages, i);
-            var targetPageNumber = i;
+            string format = string.Format(pagerOptions.TextToIndividualPages, i);
+            int targetPageNumber = i;
             var page = new TagBuilder("a");
             SetInnerText(page, format);
             page.AddCssClass(pagerOptions.PageClass);
@@ -150,7 +150,7 @@ namespace P.Pager.Mvc.Core
 
         private static TagBuilder Next(IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
-            var targetPageNumber = pager.CurrentPageIndex + 1;
+            int targetPageNumber = pager.CurrentPageIndex + 1;
             var next = new TagBuilder("a");
             AppendHtml(next, string.Format(pagerOptions.TextToNextPage, targetPageNumber));
             next.Attributes["rel"] = "next";
@@ -166,7 +166,7 @@ namespace P.Pager.Mvc.Core
 
         private static TagBuilder Last(IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
-            var targetPageNumber = pager.TotalPageCount;
+            int targetPageNumber = pager.TotalPageCount;
             var last = new TagBuilder("a");
             AppendHtml(last, string.Format(pagerOptions.TextToLastPage, targetPageNumber));
 

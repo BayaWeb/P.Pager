@@ -1,36 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>P.Pager.Mvc.Core</Title>
-    <Company>PuffinWeb</Company>
+    <Company>BlogArray</Company>
     <Authors>Sisindry Medagam</Authors>
     <Description>Lightweight package for easily paging through any IEnumerable/IQueryable in .NET Core Mvc Web Application.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIconUrl>https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/icon.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/PuffinWeb/P.Pager</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/PuffinWeb/P.Pager.git</RepositoryUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/BlogArray/P.Pager/master/icon.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/BlogArray/P.Pager</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/BlogArray/P.Pager.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Paged list, paging in .net core, asp.net pagedlist, paging in .net, paging in mvc, MvcPager, MvcPagedList, PaginationInMvc, MvcPagination</PackageTags>
     <NeutralLanguage>en-IN</NeutralLanguage>
     <SignAssembly>true</SignAssembly>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>3.0</Version>
-    <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <FileVersion>3.0.0.0</FileVersion>
-    <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2020</Copyright>
-    <PackageReleaseNotes>v3.0 - P.Pager now Support .Net Core 3 above.</PackageReleaseNotes>
+    <Version>7.0</Version>
+    <AssemblyVersion>7.0.0.0</AssemblyVersion>
+    <FileVersion>7.0.0.0</FileVersion>
+    <Copyright>Copyright Sisindry Medagam, BlogArray © 2020</Copyright>
+    <PackageReleaseNotes>v7.0 - P.Pager now Support .Net Core 6 above.</PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>p.pager.mvc.core.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\P.Pager\P.Pager.csproj" />
   </ItemGroup>
-
 </Project>

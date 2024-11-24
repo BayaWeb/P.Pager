@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace P.Pager
 {
@@ -89,7 +88,7 @@ namespace P.Pager
         /// <summary>
         /// Sub-index of first item in paged child.
         /// </summary>
-        public int StartItemIndex { get { return (CurrentPageIndex - 1) * PageSize + 1; } }
+        public int StartItemIndex { get { return ((CurrentPageIndex - 1) * PageSize) + 1; } }
 
         /// <summary>
         /// Sub-index of last item in paged child.
