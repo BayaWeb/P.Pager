@@ -8,8 +8,10 @@
     <Description>Lightweight package for easily paging through any IEnumerable/IQueryable in .NET Core Mvc Web Application.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIconUrl>https://raw.githubusercontent.com/BlogArray/P.Pager/master/icon.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/BlogArray/P.Pager</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlogArray/P.Pager.git</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Paged list, paging in .net core, asp.net pagedlist, paging in .net, paging in mvc, MvcPager, MvcPagedList, PaginationInMvc, MvcPagination</PackageTags>
     <NeutralLanguage>en-IN</NeutralLanguage>
@@ -27,5 +29,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\P.Pager\P.Pager.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None  Include="..\..\icon.png" Pack="true" PackagePath="\"/>
+    <None  Include="..\..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\icon.png" Link="icon.png" CopyToOutputDirectory="Always" />
+    <Content Include="..\..\README.md" Link="README.md" CopyToOutputDirectory="Always" />
   </ItemGroup>
 </Project>
